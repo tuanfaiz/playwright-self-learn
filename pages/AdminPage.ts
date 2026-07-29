@@ -20,15 +20,22 @@ export class AdminPage {
         await this.page.goto('/admin');
     }
 
+    async loginAsAdmin() {
+        await this.fillAdminUsername(ADMIN_USERNAME);
+        await this.fillAdminPassword(ADMIN_PASSWORD);
+        await this.clickAdminLogin();
+    }
+
     async fillAdminUsername(username: string) {
-        await this.adminUsernameInput.fill(ADMIN_USERNAME);
+        await this.adminUsernameInput.fill(username);
     }
 
     async fillAdminPassword(password: string) {
-        await this.adminPasswordInput.fill(ADMIN_PASSWORD);
+        await this.adminPasswordInput.fill(password);
     }
 
     async clickAdminLogin() {
         await this.adminLoginButton.click();
     }
+
 }
