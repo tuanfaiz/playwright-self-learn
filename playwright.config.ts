@@ -10,7 +10,7 @@ export default defineConfig({
   reporter: [['html'], ['list']],
   
   use: {
-    baseURL: 'https://automationintesting.online',
+    baseURL: 'http://localhost:3003/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -56,7 +56,7 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   // webServer: {
   //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
+  //   url: 'http://localhost:3003/',
   //   reuseExistingServer: !process.env.CI,
   // },
 });
