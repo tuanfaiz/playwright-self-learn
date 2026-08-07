@@ -8,12 +8,14 @@ export class AdminPage {
     readonly adminUsernameInput: Locator;
     readonly adminPasswordInput: Locator;
     readonly adminLoginButton: Locator;
+    readonly adminPageHeader: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.adminUsernameInput = page.getByRole('textbox', { name: 'Username' });
         this.adminPasswordInput = page.getByRole('textbox', { name: 'Password' });
         this.adminLoginButton = page.getByRole('button', { name: 'Login' });
+        this.adminPageHeader = page.getByText('Restful Booker Platform Demo');
     }
 
     async goto() {
@@ -36,6 +38,10 @@ export class AdminPage {
 
     async clickAdminLogin() {
         await this.adminLoginButton.click();
+    }
+
+    async verifyAdminPageHeader() {
+        await expect(this.adminPageHeader).toBeVisible();
     }
 
 }
